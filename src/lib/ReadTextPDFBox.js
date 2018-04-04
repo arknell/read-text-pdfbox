@@ -27,6 +27,9 @@ class ReadTextPDFBox {
 		stripper.setStartPageSync(1);
 		stripper.writeTextSync(doc, writer);
 		
+		doc.closeSync();
+		writer.closeSync();
+		
 		return writer.toStringSync();
 	}
 }
