@@ -1,0 +1,1 @@
+"use strict";var pdfbox=require("./lib/ReadTextPDFBox");module.exports=pdfbox;

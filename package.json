@@ -23,5 +23,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8"
   },
-  "dependencies": {}
+  "dependencies": {
+    "java": "^0.9.1"
+  }
 }

@@ -1,0 +1,6 @@
+.*
+test/
+node_modules/
+src/
+gulpfile.babel.js
+package-lock.json
