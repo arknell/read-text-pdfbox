@@ -6,20 +6,18 @@
 
 
 class ReadTextPDFBox {
-	constructor() {
+	constructor(java) {
 		let fs = require('fs');
-		this.java = require('java');
+		this.java = java || require('java');
 		var baseDir = __dirname + '/jar';
 		var dependencies = fs.readdirSync(baseDir);
 		
 		dependencies.forEach((dependency) => {
 			this.java.classpath.push(baseDir + "/" + dependency);
 		});
-		this.java.import('java.io.File');
-		this.java.import('java.io.StringWriter');
 	}
 	
-	read(path) {
+	readAsync(path) {
 		let file = this.java.newInstanceSync('java.io.File', path);
 		let writer = this.java.newInstanceSync('java.io.StringWriter');
 		let doc = this.java.callStaticMethodSync("org.apache.pdfbox.pdmodel.PDDocument", "load", file);
@@ -31,6 +29,25 @@ class ReadTextPDFBox {
 		writer.closeSync();
 		
 		return writer.toStringSync();
+	}
+	
+	read(path) {
+		let file = this.java.newInstanceSync('java.io.File', path);
+		let writer = this.java.newInstanceSync('java.io.StringWriter');
+		let doc = this.java.callStaticMethodSync("org.apache.pdfbox.pdmodel.PDDocument", "load", file);
+		let stripper = this.java.newInstanceSync('org.apache.pdfbox.text.PDFTextStripper');
+		return new Promise((resolve, reject) => {
+			return stripper.setStartPage(1, (err) => {
+				if (err)
+					return reject(err);
+				
+				return stripper.writeText(doc, writer, (err) => {
+					doc.closeSync();
+					writer.closeSync();
+					resolve(writer.toStringSync());
+				})
+			});
+		});
 	}
 }
 
