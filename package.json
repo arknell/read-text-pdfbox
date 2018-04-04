@@ -24,7 +24,7 @@
     "gulp-util": "^3.0.8"
   },
   "dependencies": {
-    "java": "^0.8.0",
+    "java": "^0.7.0",
     "node-twitter-korean-text": "^1.0.5"
   }
 }
