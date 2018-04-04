@@ -1,6 +1,6 @@
 {
   "name": "read-text-pdfbox",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "read text from pdf using pdfbox apache library",
   "author": "chanwookwon <kwoncwoo@gmail.com>",
   "contributors": [],
