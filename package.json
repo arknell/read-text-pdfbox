@@ -1,0 +1,27 @@
+{
+  "name": "read-text-pdfbox",
+  "version": "0.0.1",
+  "description": "read text from pdf using pdfbox apache library",
+  "author": "chanwookwon <kwoncwoo@gmail.com>",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arknell/read-text-pdfbox.git"
+  },
+  "main": "./dist/index",
+  "keywords": [
+    "pdf",
+    "text",
+    "read",
+    "pdfbox"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8"
+  },
+  "dependencies": {}
+}
